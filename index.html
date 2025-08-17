@@ -1,21 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <title>SpaceX Dataset Demo</title>
+  <!-- Load PyScript -->
   <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
   <script defer src="https://pyscript.net/latest/pyscript.js"></script>
 </head>
 <body>
-  <h2>SpaceX Dataset in PyScript</h2>
+  <h1>🚀 SpaceX Dataset (PyScript Demo)</h1>
+  <p>This page reads a CSV with <code>pandas</code> directly in the browser.</p>
+
+  <!-- Output will appear here -->
+  <py-terminal></py-terminal>
 
   <py-config>
-    [[fetch]]
-    files = ["spacex_dataset.csv"]
+    packages = ["pandas"]
   </py-config>
 
   <py-script>
 import pandas as pd
 
+# Read the CSV from the same folder as index.html
 df = pd.read_csv("spacex_dataset.csv")
+
+print("✅ CSV loaded successfully!")
+print("Here are the first 5 rows:")
 print(df.head())
   </py-script>
 </body>
